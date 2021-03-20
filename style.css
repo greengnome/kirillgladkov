@@ -4,7 +4,6 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  min-width: 375px;
 }
 
 .soon-wrapper .soon-title {
