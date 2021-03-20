@@ -1,0 +1,31 @@
+.soon-wrapper {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-width: 640px;
+}
+
+.soon-wrapper .soon-title {
+  font-family: 'JetBrains Mono', Arial, Helvetica, sans-serif;
+  font-size: 3em;
+}
+
+.soon-wrapper .img-container {
+  width: 35%;
+}
+
+@media screen and (max-width: 880px) {
+  .soon-wrapper .soon-title {
+    font-size: 2em;
+  }
+  .soon-wrapper .img-container {
+    width: 100%;
+  }
+}
+
+.soon-wrapper .img-container .programmer {
+  max-width: 100%;
+  height: auto;
+}
