@@ -1,4 +1,6 @@
 import Head from 'next/head';
+import { ThemeProvider } from 'next-themes';
+
 import '../styles/globals.css';
 
 function MyApp({ Component, pageProps }) {
@@ -7,7 +9,9 @@ function MyApp({ Component, pageProps }) {
       <Head>
         <title>Gladkov Kirill</title>
       </Head>
-      <Component {...pageProps} />
+      <ThemeProvider attribute="data-theme" defaultTheme="system">
+        <Component {...pageProps} />
+      </ThemeProvider>
     </>
   );
 }
