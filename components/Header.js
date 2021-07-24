@@ -1,6 +1,6 @@
-import styles from '../styles/Header.module.css';
+import styles from 'styles/Header.module.css';
 
-import ThemeChanger from '../components/ThemeChanger';
+import ThemeChanger from 'components/ThemeChanger';
 
 const Header = () => {
   return (

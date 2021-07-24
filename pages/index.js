@@ -18,6 +18,7 @@ export default function Home() {
             height={400}
             layout="responsive"
             alt="programmer"
+            loading="lazy"
           />
         </div>
       </div>

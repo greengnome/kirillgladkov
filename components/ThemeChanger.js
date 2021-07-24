@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { useTheme } from 'next-themes';
 
-import styles from './../styles/ThemeChanger.module.css';
+import styles from 'styles/ThemeChanger.module.css';
 
 const ThemeChanger = () => {
   const { setTheme, theme } = useTheme();
@@ -30,6 +30,7 @@ const ThemeChanger = () => {
         height={18}
         onClick={changeTheme}
         alt="mode-img"
+        loading="lazy"
       />
     </button>
   );

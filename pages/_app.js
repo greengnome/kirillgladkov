@@ -8,6 +8,11 @@ function MyApp({ Component, pageProps }) {
     <>
       <Head>
         <title>Gladkov Kirill</title>
+        <meta charSet="UTF-8" />
+        <meta
+          name="description"
+          content="Kirill`s Gladkov personal site."
+        ></meta>
       </Head>
       <ThemeProvider attribute="data-theme" defaultTheme="system">
         <Component {...pageProps} />
