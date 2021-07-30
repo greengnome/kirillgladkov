@@ -30,7 +30,6 @@ const ThemeChanger = () => {
         height={18}
         onClick={changeTheme}
         alt="mode-img"
-        loading="lazy"
       />
     </button>
   );
