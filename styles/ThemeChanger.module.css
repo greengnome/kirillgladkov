@@ -1,0 +1,10 @@
+.themeButton {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 5px;
+  width: 30px;
+  height: 30px;
+  justify-self: flex-end;
+  outline: none;
+}
