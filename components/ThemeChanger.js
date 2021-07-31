@@ -1,20 +1,21 @@
 import Image from 'next/image';
 import { useTheme } from 'next-themes';
 
-import styles from 'styles/ThemeChanger.module.css';
+import { DARK, LIGHT } from 'constants/theme-modes';
+import styles from 'styles/ThemeChanger.module.scss';
 
 const ThemeChanger = () => {
   const { setTheme, theme } = useTheme();
 
   const imgPath = `/assets/${
-    theme === 'dark' ? 'light_mode_white_24dp.svg' : 'dark_mode_black_24dp.svg'
+    theme === DARK ? 'light_mode_white_24dp.svg' : 'dark_mode_black_24dp.svg'
   }`;
 
   const changeTheme = () => {
-    if (theme === 'light') {
-      setTheme('dark');
+    if (theme === LIGHT) {
+      setTheme(DARK);
     } else {
-      setTheme('light');
+      setTheme(LIGHT);
     }
   };
 

@@ -1,21 +1,22 @@
 import Image from 'next/image';
-import Header from '../components/Header';
+import Header from 'components/Header';
 
-import styles from '../styles/Home.module.css';
+import classes from 'styles/Home.module.scss';
 
 export default function Home() {
   return (
     <>
       <Header />
-      <div className={styles['soon-wrapper']}>
+      <div className={classes['soon-wrapper']}>
         <div>
-          <span className={styles['soon-title']}>Coming soon...</span>
+          <span className={classes['soon-title']}>Coming soon...</span>
         </div>
-        <div className={styles['img-container']}>
+        <div className={classes['img-container']}>
           <Image
             src="/assets/programmer.webp"
             width={400}
             height={400}
+            className={classes.programmer}
             layout="responsive"
             alt="programmer"
           />
