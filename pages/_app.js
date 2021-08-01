@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import Head from 'next/head';
 import { ThemeProvider } from 'next-themes';
 
@@ -20,5 +21,14 @@ function MyApp({ Component, pageProps }) {
     </>
   );
 }
+
+MyApp.propTypes = {
+  Component: PropTypes.oneOfType([
+    PropTypes.node,
+    PropTypes.element,
+    PropTypes.elementType,
+  ]),
+  pageProps: PropTypes.object,
+};
 
 export default MyApp;

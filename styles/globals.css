@@ -1,6 +1,7 @@
 :root {
   --color-primary: #000000;
   --background: #ffffff;
+  --navColor: var(--color-primary);
 
   /* Sizes */
   --headerHeight: 50px;
@@ -8,6 +9,7 @@
 [data-theme='dark'] {
   --color-primary: #ffffff;
   --background: #000000;
+  --navColor: var(--color-primary);
 }
 
 html,
@@ -35,4 +37,8 @@ a {
 
 img {
   object-fit: contain;
+}
+
+li {
+  list-style: none;
 }
