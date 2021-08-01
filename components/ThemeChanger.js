@@ -27,8 +27,8 @@ const ThemeChanger = () => {
     >
       <Image
         src={imgPath}
-        width={18}
-        height={18}
+        width={25}
+        height={25}
         onClick={changeTheme}
         alt="mode-img"
       />

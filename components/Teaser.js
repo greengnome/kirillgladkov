@@ -10,6 +10,7 @@ const Teaser = () => {
       </div>
       <div className={classes['img-container']}>
         <Image
+          priority
           src="/assets/programmer.webp"
           width={400}
           height={400}
