@@ -1,9 +1,17 @@
 {
   "env": {
     "browser": true,
+    "node": true,
     "es6": true
   },
-  "extends": ["next", "plugin:jsx-a11y/recommended", "prettier"],
+  "extends": [
+    "next",
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:jsx-a11y/recommended",
+    "plugin:prettier/recommended"
+  ],
   "settings": {
     "import/resolver": {
       "node": {
@@ -23,7 +31,16 @@
   },
   "rules": {
     "react/react-in-jsx-scope": "off",
-    "react/jsx-filename-extension": 0
+    "react/jsx-filename-extension": 0,
+    "jsx-a11y/anchor-is-valid": "off",
+    "jsx-a11y/no-onchange": "off",
+    "prettier/prettier": [
+      "error",
+      {},
+      {
+        "usePrettierrc": true
+      }
+    ]
   },
   "plugins": ["react"]
 }
