@@ -1,13 +1,9 @@
-import Header from 'components/Header';
-import Teaser from 'components/Teaser';
-
-import classes from 'styles/Main.module.scss';
+import Layout from "components/Layout";
 
 export default function Home() {
   return (
-    <main id={classes.container}>
-      <Header />
-      <Teaser />
-    </main>
+    <Layout>
+      <div className="dark:prose-dark">Home page</div>
+    </Layout>
   );
 }

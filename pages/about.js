@@ -1,11 +1,10 @@
-import Header from 'components/Header';
+import Layout from "components/Layout";
 
 const AboutPage = () => {
   return (
-    <>
-      <Header />
-      <div>About page</div>
-    </>
+    <Layout>
+      <div className="dark:prose-dark">About page</div>
+    </Layout>
   );
 };
 
