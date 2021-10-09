@@ -1,5 +1,5 @@
 {
-  "name": "gladkovkirill.dev",
+  "name": "kirillgladkov",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "framer-motion": "^4.1.17",
-    "next": "^11.0.1",
+    "next": ">=11.0.1",
     "next-themes": "0.0.14",
     "react": "17.0.2",
     "react-dom": "17.0.2",
