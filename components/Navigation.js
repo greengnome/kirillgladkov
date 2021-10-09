@@ -1,43 +1,46 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-import Link from 'next/link';
-import { useState } from 'react';
-import classes from 'styles/Navigation.module.scss';
+import { AnimateSharedLayout, motion } from "framer-motion";
+import { useRouter } from "next/dist/client/router";
+import Link from "components/NoScrollLink";
+
+import { isActiveLink } from "lib/utils";
+
+const links = [
+  {
+    name: "Home",
+    href: "/",
+  },
+  {
+    name: "About",
+    href: "/about",
+  },
+  {
+    name: "Contact",
+    href: "/contact",
+  },
+];
 
 const Navigation = () => {
-  const [active, setActive] = useState(false);
-  const onMenuClick = () => {
-    setActive((prev) => !prev);
-  };
+  const router = useRouter();
+
   return (
-    <nav className={classes.navbar}>
-      <ul className={`${classes['nav-menu']} ${active && classes.active}`}>
-        <li className={classes['nav-item']}>
-          <Link href="/">
-            <a className={classes['nav-link']}>Home</a>
+    <AnimateSharedLayout>
+      <nav className="flex">
+        {links.map(({ name, href }) => (
+          <Link key={name} href={href}>
+            <a className="mr-6 sm:mr-8 flex flex-col relative">
+              {name}
+              {isActiveLink(href, router.pathname) && (
+                <motion.div
+                  layoutId="navigation-underline"
+                  className="navigation-underline"
+                  animate
+                />
+              )}
+            </a>
           </Link>
-        </li>
-        <li className={classes['nav-item']}>
-          <Link href="/about">
-            <a className={classes['nav-link']}>About</a>
-          </Link>
-        </li>
-        <li className={classes['nav-item']}>
-          <Link href="/contact">
-            <a className={classes['nav-link']}>Contact</a>
-          </Link>
-        </li>
-      </ul>
-      <button
-        type="button"
-        aria-label="navigation-menu-button"
-        className={`${classes.hamburger} ${active && classes.active}`}
-        onClick={onMenuClick}
-      >
-        <span className={classes.bar}></span>
-        <span className={classes.bar}></span>
-        <span className={classes.bar}></span>
-      </button>
-    </nav>
+        ))}
+      </nav>
+    </AnimateSharedLayout>
   );
 };
 
