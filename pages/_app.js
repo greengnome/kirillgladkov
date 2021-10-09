@@ -1,10 +1,28 @@
-import PropTypes from 'prop-types';
-import Head from 'next/head';
-import { ThemeProvider } from 'next-themes';
+import { useEffect } from "react";
+import PropTypes from "prop-types";
+import Head from "next/head";
+import { AnimatePresence } from "framer-motion";
 
-import '../styles/globals.css';
+import Header from "components/Header";
 
-function MyApp({ Component, pageProps }) {
+import "styles/globals.css";
+import "tailwindcss/tailwind.css";
+
+function MyApp({ Component, pageProps, router }) {
+  const url = `https://kirillgladkov.dev${router.route}`;
+
+  useEffect(() => {
+    if (
+      localStorage.theme === "dark" ||
+      (!("theme" in localStorage) &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches)
+    ) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  });
+
   return (
     <>
       <Head>
@@ -12,12 +30,17 @@ function MyApp({ Component, pageProps }) {
         <meta charSet="UTF-8" />
         <meta
           name="description"
-          content="Kirill`s Gladkov personal site."
-        ></meta>
+          content="The personal website for Kirill Gladkov, developer."
+        />
       </Head>
-      <ThemeProvider attribute="data-theme" defaultTheme="system">
-        <Component {...pageProps} />
-      </ThemeProvider>
+      <Header />
+      <AnimatePresence
+        exitBeforeEnter
+        initial={false}
+        onExitComplete={() => window.scrollTo(0, 0)}
+      >
+        <Component {...pageProps} canonical={url} key={url} />
+      </AnimatePresence>
     </>
   );
 }
@@ -29,6 +52,7 @@ MyApp.propTypes = {
     PropTypes.elementType,
   ]),
   pageProps: PropTypes.object,
+  router: PropTypes.object,
 };
 
 export default MyApp;
