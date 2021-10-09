@@ -1,13 +1,20 @@
 {
   "env": {
     "browser": true,
-    "es6": true
+    "es6": true,
+    "node": true
   },
-  "extends": ["next", "plugin:jsx-a11y/recommended", "prettier"],
+  "extends": [
+    "next",
+    "plugin:jsx-a11y/recommended",
+    "prettier"
+  ],
   "settings": {
     "import/resolver": {
       "node": {
-        "paths": ["."]
+        "paths": [
+          "."
+        ]
       }
     }
   },
@@ -23,7 +30,21 @@
   },
   "rules": {
     "react/react-in-jsx-scope": "off",
-    "react/jsx-filename-extension": 0
+    "react/jsx-filename-extension": 0,
+    "prettier/prettier": [
+      "error",
+      {
+        "semi": true,
+        "trailingComma": "es5",
+        "singleQuote": false,
+        "printWidth": 100,
+        "tabWidth": 2,
+        "useTabs": false
+      }
+    ]
   },
-  "plugins": ["react"]
+  "plugins": [
+    "react",
+    "prettier"
+  ]
 }

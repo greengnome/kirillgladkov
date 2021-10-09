@@ -1,44 +1,40 @@
-:root {
-  --color-primary: #000000;
-  --background: #ffffff;
-  --navColor: var(--color-primary);
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-  /* Sizes */
-  --headerHeight: 50px;
-}
-[data-theme='dark'] {
-  --color-primary: #ffffff;
-  --background: #000000;
-  --navColor: var(--color-primary);
-}
+@layer components {
+    .highlight__panel {
+        @apply hidden;
+    }
+    .prose img {
+        @apply mx-auto shadow-md rounded;
+    }
+    .prose figure, .prose figcaption {
+        @apply text-center italic;
+        margin-top: -1rem;
+    }
+    .prose figure {
+        @apply my-6;
+    }
+    .prose figure br {
+        @apply hidden;
+    }
 
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  background-color: var(--background);
-  height: 100%;
-}
-
-#__next {
-  height: 100%;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
+    .navigation-underline {
+        @apply w-full border border-yellow-300;
+    }
 }
 
-* {
-  box-sizing: border-box;
-}
+@layer utilities {
+    @variants responsive {
+        .hide {
+            display: none;
+            visibility: hidden;
+        }
 
-img {
-  object-fit: contain;
-}
-
-li {
-  list-style: none;
+        .show {
+            display: inline;
+            visibility: visible;
+        }
+    }
 }

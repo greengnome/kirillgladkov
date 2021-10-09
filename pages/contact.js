@@ -1,11 +1,10 @@
-import Header from 'components/Header';
+import Layout from "components/Layout";
 
 const Contact = () => {
   return (
-    <>
-      <Header />
-      <div>Contact me</div>
-    </>
+    <Layout>
+      <div className="dark:prose-dark">Contact me</div>
+    </Layout>
   );
 };
 
