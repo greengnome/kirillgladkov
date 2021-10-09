@@ -1,39 +1,44 @@
-import Image from 'next/image';
-import { useTheme } from 'next-themes';
+import { useState, useEffect } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 
-import { DARK, LIGHT } from 'constants/theme-modes';
-import styles from 'styles/ThemeChanger.module.scss';
+import {
+  getModeSwitcherVariants,
+  isDark,
+  isDarkModeActive,
+  toggleTheme,
+} from "lib/theme-utils";
 
-const ThemeChanger = () => {
-  const { setTheme, theme } = useTheme();
+const variants = getModeSwitcherVariants();
 
-  const imgPath = `/assets/${
-    theme === DARK ? 'light_mode_white_24dp.svg' : 'dark_mode_black_24dp.svg'
-  }`;
+const DarkModeToggle = () => {
+  const [isDarkMode, setDarkMode] = useState(false);
 
-  const changeTheme = () => {
-    if (theme === LIGHT) {
-      setTheme(DARK);
-    } else {
-      setTheme(LIGHT);
-    }
+  const toggleMode = () => {
+    toggleTheme(isDarkMode);
+    setDarkMode(!isDarkMode);
   };
 
+  useEffect(() => {
+    setDarkMode(isDark());
+  }, []);
+
+  const darkModeActive = isDarkModeActive();
+
   return (
-    <button
-      className={styles.themeButton}
-      type="button"
-      aria-label="theme-button"
-    >
-      <Image
-        src={imgPath}
-        width={25}
-        height={25}
-        onClick={changeTheme}
-        alt="mode-img"
-      />
-    </button>
+    <AnimatePresence exitBeforeEnter initial={false}>
+      <motion.button
+        className="text-2xl sm:text-3xl text-yellow-400 dark:text-yellow-300 focus:outline-none"
+        onClick={toggleMode}
+        key={darkModeActive ? "dark-icon" : "light-icon"}
+        initial={variants.initial}
+        animate={variants.animate}
+        exit={variants.exit}
+        transition={variants.transition}
+      >
+        {darkModeActive ? "🌙" : "🌤️"}
+      </motion.button>
+    </AnimatePresence>
   );
 };
 
-export default ThemeChanger;
+export default DarkModeToggle;
