@@ -5,43 +5,44 @@ import Link from "components/NoScrollLink";
 import { isActiveLink } from "lib/utils";
 
 const links = [
-  {
-    name: "Home",
-    href: "/",
-  },
-  {
-    name: "About",
-    href: "/about",
-  },
-  {
-    name: "Contact",
-    href: "/contact",
-  },
+    {
+        name: "Home",
+        href: "/",
+    },
+    {
+        name: "About",
+        href: "/about",
+    },
+    {
+        name: "Contact",
+        href: "/contact",
+    },
 ];
 
 const Navigation = () => {
-  const router = useRouter();
+    const router = useRouter();
 
-  return (
-    <AnimateSharedLayout>
-      <nav className="flex">
-        {links.map(({ name, href }) => (
-          <Link key={name} href={href}>
-            <a className="mr-6 sm:mr-8 flex flex-col relative">
-              {name}
-              {isActiveLink(href, router.pathname) && (
-                <motion.div
-                  layoutId="navigation-underline"
-                  className="navigation-underline"
-                  animate
-                />
-              )}
-            </a>
-          </Link>
-        ))}
-      </nav>
-    </AnimateSharedLayout>
-  );
+    return (
+        <AnimateSharedLayout>
+            <nav className="flex">
+                {links.map(({ name, href }) => (
+                    <Link key={name} href={href}>
+                        {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+                        <a className="mr-6 sm:mr-8 flex flex-col relative">
+                            {name}
+                            {isActiveLink(href, router.pathname) && (
+                                <motion.div
+                                    layoutId="navigation-underline"
+                                    className="navigation-underline"
+                                    animate
+                                />
+                            )}
+                        </a>
+                    </Link>
+                ))}
+            </nav>
+        </AnimateSharedLayout>
+    );
 };
 
 export default Navigation;
