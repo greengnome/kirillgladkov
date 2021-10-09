@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import Image from "next/image";
 
 import {
   getModeSwitcherVariants,
@@ -35,7 +36,21 @@ const DarkModeToggle = () => {
         exit={variants.exit}
         transition={variants.transition}
       >
-        {darkModeActive ? "🌙" : "🌤️"}
+        {darkModeActive ? (
+          <Image
+            src="/assets/light_mode_white_24dp.svg"
+            width="20"
+            height="20"
+            alt="theme-dark"
+          />
+        ) : (
+          <Image
+            src="/assets/dark_mode_black_24dp.svg"
+            width="20"
+            height="20"
+            alt="theme-dark"
+          />
+        )}
       </motion.button>
     </AnimatePresence>
   );
