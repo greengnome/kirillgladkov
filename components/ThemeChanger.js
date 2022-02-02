@@ -6,7 +6,7 @@ import { getModeSwitcherVariants, isDark, isDarkModeActive, toggleTheme } from "
 
 const variants = getModeSwitcherVariants();
 
-const DarkModeToggle = () => {
+const ThemeChanger = () => {
   const [isDarkMode, setDarkMode] = useState(false);
 
   const toggleMode = () => {
@@ -41,4 +41,4 @@ const DarkModeToggle = () => {
   );
 };
 
-export default DarkModeToggle;
+export default ThemeChanger;
